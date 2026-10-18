@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Like Helper",
+  "version": "1.1.0",
+  "description": "Surligne les posts de tes relations (1er niveau) pas encore likés et propose des commentaires générés par ton modèle local. C'est toi qui cliques.",
+  "permissions": ["storage"],
+  "host_permissions": ["http://127.0.0.1:8008/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
